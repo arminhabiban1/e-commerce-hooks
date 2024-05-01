@@ -1,20 +1,19 @@
-import  {BrowserRouter as Router,Routes,Route}  from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Basket from "./pages/Basket";
 import Home from "./pages/Home";
-
+import  StoreProvider  from "./context-reducer/StoreContext.js";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/basket" element={<Basket />} />
-             
+    <StoreProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/basket" element={<Basket />} />
         </Routes>
-    </Router>
-
-    
-  )
+      </Router>
+    </StoreProvider>
+  );
 }
 
 export default App;
